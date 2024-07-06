@@ -2,7 +2,10 @@ const App = () => {
   return (
     <>
       <main className="flex flex-col md:flex-row">
-        <div className="h-[30vh] w-[100vw] md:h-[100dvh] md:w-[30vw] bg-[url('./assets/bg-main-mobile.png')] md:bg-[url('./assets/bg-main-desktop.png')] bg-cover bg-center"></div>
+        <div className="h-[30vh] w-[100vw] md:h-[100dvh] md:w-[30vw] bg-[url('./assets/bg-main-mobile.png')] md:bg-[url('./assets/bg-main-desktop.png')] bg-cover bg-center relative">
+          <div className="bg-[url('./assets/bg-card-front.png')] w-[30vw] h-[14vw] rounded-md bg-cover bg-center absolute -right-12 top-40"></div>
+          <div className="bg-[url('./assets/bg-card-back.png')] w-[30vw] h-[14vw] rounded-md bg-cover bg-center absolute -right-8 bottom-24"></div>
+        </div>
         <div className="flex items-center justify-center h-[70vh] md:h-[100vh] md:w-[70vw]">
           <form className="flex flex-col gap-4 w-[20rem]">
             <div className="flex flex-col gap-1">
