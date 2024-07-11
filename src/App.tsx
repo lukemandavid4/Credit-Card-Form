@@ -4,7 +4,6 @@ const App = () => {
   const [cardNumber, setCardNumber] = useState("0000000000000000");
   const [name, setName] = useState("Jane Appleseed");
   // const [value, setValue] = useState("");
-  const [error, setError] = useState("");
   const [month, setMonth] = useState("00");
   const [year, setYear] = useState("00");
   const [cvc, setCvc] = useState("000");
@@ -13,9 +12,6 @@ const App = () => {
     // if (cardNumber != Number) {
     //   setValue("Wrong format, numbers only.");
     // }
-    if (month == "") {
-      setError("Cant be blank");
-    }
   };
   return (
     <>
@@ -107,7 +103,7 @@ const App = () => {
                     maxLength={2}
                   />
                 </div>
-                <p className="text-red-600 font-bold text-[0.9rem]">{error}</p>
+                <p className="text-red-600 font-bold text-[0.9rem]"></p>
               </div>
               <div className="flex flex-col w-[50%] gap-1">
                 <label
