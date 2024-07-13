@@ -4,6 +4,8 @@ const App = () => {
   const [cardNumber, setCardNumber] = useState("0000000000000000");
   const [name, setName] = useState("Jane Appleseed");
   const [value, setValue] = useState("");
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const [month, setMonth] = useState("00");
   const [year, setYear] = useState("00");
   const [cvc, setCvc] = useState("000");
@@ -11,6 +13,12 @@ const App = () => {
     e.preventDefault();
     if (!/^\d+$/.test(cardNumber)) {
       setValue("Wrong format, numbers only.");
+    }
+    if (month === "" || year === "") {
+      setError("Cant be blank");
+    }
+    if (cvc === "") {
+      setMessage("Cant be blank");
     }
   };
   return (
@@ -103,7 +111,7 @@ const App = () => {
                     maxLength={2}
                   />
                 </div>
-                <p className="text-red-600 font-bold text-[0.9rem]"></p>
+                <p className="text-red-600 font-bold text-[0.9rem]">{error}</p>
               </div>
               <div className="flex flex-col w-[50%] gap-1">
                 <label
@@ -121,7 +129,9 @@ const App = () => {
                   onChange={(e) => setCvc(e.target.value)}
                   maxLength={3}
                 />
-                <p className="text-red-600 font-bold text-[0.9rem]"></p>
+                <p className="text-red-600 font-bold text-[0.9rem]">
+                  {message}
+                </p>
               </div>
             </div>
             <button
