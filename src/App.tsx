@@ -3,15 +3,15 @@ import { useState } from "react";
 const App = () => {
   const [cardNumber, setCardNumber] = useState("0000000000000000");
   const [name, setName] = useState("Jane Appleseed");
-  // const [value, setValue] = useState("");
+  const [value, setValue] = useState("");
   const [month, setMonth] = useState("00");
   const [year, setYear] = useState("00");
   const [cvc, setCvc] = useState("000");
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // if (cardNumber != Number) {
-    //   setValue("Wrong format, numbers only.");
-    // }
+    if (!/^\d+$/.test(cardNumber)) {
+      setValue("Wrong format, numbers only.");
+    }
   };
   return (
     <>
@@ -71,9 +71,9 @@ const App = () => {
                 onChange={(e) => setCardNumber(e.target.value)}
                 maxLength={16}
               />
-              {/* <p className="text-[0.9rem] text-red-600 font-semibold">
+              <p className="text-[0.9rem] text-red-600 font-semibold">
                 {value}
-              </p> */}
+              </p>
             </div>
             <div className="flex gap-4 justify-between">
               <div className="flex flex-col w-[50%] gap-1">
